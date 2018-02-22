@@ -1,0 +1,130 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12">
+      <h3>Attribute & Structural Example</h3>
+      <br />
+      <button
+        type="button"
+        name="button"
+        class="btn btn-primary"
+        (click)="defaultNumber=!defaultNumber">Toggel Number</button>
+      <br /><br />
+        <ul class="list-group">
+          <div *ngIf="defaultNumber">
+            <li
+              class="list-group-item"
+              [ngClass]="'oddNumber'"
+              [ngStyle]="{'color':'red'}"
+              *ngFor="let number of oddNumber; let i = index" >
+              {{ i + 1}} - {{ number }}
+            </li>
+          </div>
+          <div *ngIf="!defaultNumber">
+            <li
+              class="list-group-item"
+              [ngClass]="'evenNumber'"
+              [ngStyle]="{'color':'blue'}"
+              *ngFor="let number of evenNumber; let i = index" >
+              {{ i + 1}} - {{ number }}
+            </li>
+          </div>
+        </ul>
+    </div>
+  </div>
+</div>
+
+<div class="container" style="margin-top: 20px;">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12">
+      <hr />
+      <h3>Creating Basic Attribute Directive Example</h3>
+      <br />
+      <p appBasicAttributeDirective>
+        Styling the paragraph using the manually created directive.
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="container" style="margin-top: 20px;">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12">
+      <hr />
+      <h3>Creating Attribute Directive Renderer2 Example</h3>
+      <br />
+      <p appRendererAttributeDirective>
+        Styling the paragraph with better way Renderer2.
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="container" style="margin-top: 20px;">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12">
+      <hr />
+      <h3>Creating Attribute Directive Hostlistener Example</h3>
+      <br />
+      <p appHostlistenerAttributeDirective>
+        Hover over the paragraph to see the effect using the hostlistener.
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="container" style="margin-top: 20px;">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12">
+      <hr />
+      <h3>Creating Structural Directive Example</h3>
+      <br />
+      <button
+        type="button"
+        name="button"
+        class="btn btn-primary"
+        (click)="defaultNumber=!defaultNumber">Toggel Number</button>
+      <br /><br />
+        <ul class="list-group">
+          <div *appOppositeNgifDirective="!defaultNumber">
+            <li
+              class="list-group-item"
+              *ngFor="let number of oddNumber" >
+              {{ number }}
+            </li>
+          </div>
+          <div *appOppositeNgifDirective="defaultNumber">
+            <li
+              class="list-group-item"
+              *ngFor="let number of evenNumber" >
+              {{ number }}
+            </li>
+          </div>
+        </ul>
+    </div>
+  </div>
+</div>
+
+<div class="container" style="margin-top: 20px; margin-bottom: 20px;">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12">
+      <hr />
+      <h3>ngSwitch Example</h3>
+      <br />
+      <input
+        type="text"
+        name="switchInput"
+        placeholder="Input the value (5, 10, 100) for switch case"
+        class="form-control"
+        [(ngModel)] = "value"
+        #switchInput
+      >
+      <br />
+      <div [ngSwitch]="switchInput.value">
+        <p *ngSwitchCase="5">Switch case value is 5</p>
+        <p *ngSwitchCase="10">Switch case value is 10</p>
+        <p *ngSwitchCase="100">Switch case value is 100</p>
+        <p *ngSwitchDefault>Switch case value is Default</p>
+      </div>
+    </div>
+  </div>
+</div>
